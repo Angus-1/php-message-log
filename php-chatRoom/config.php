@@ -5,7 +5,7 @@ define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'luna');
 define('DB_NAME', 'chatroom');
 
-/*  connect to database */
+// connect to database 
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 // Check connect
