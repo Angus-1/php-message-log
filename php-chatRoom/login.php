@@ -1,8 +1,8 @@
 <?php
-// Initialize the session
+// Initialize 
 session_start();
 
-// if the user is already logged in, if yes then redirect him to welcome page
+// check if logged in, if yes then redirect to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: welcome.php");
     exit;
@@ -18,7 +18,7 @@ $username_err = $password_err = $login_err = "";
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    // Check if username is empty
+    // Check  username is empty
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter username.";
     } else{
