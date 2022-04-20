@@ -2,10 +2,10 @@
     // initialize errors variable
     $errors = "";
 
-    // connect to database
+    // connect database
     $db = mysqli_connect("localhost", "root", "luna", "chatroom");
 
-    // insert a quote if submit button is clicked
+    // insert quote if submit button clicked
     if (isset($_POST['submit'])) {
         if (empty($_POST['message'])) {
             $errors = "You must fill in the message";
@@ -57,7 +57,7 @@
 
 			<tbody>
 				<?php
-				// select all messages if page is visited or refreshed
+				// select all messages if page is visited/refreshed
 				$messages = mysqli_query($db, "SELECT * FROM messages");
 	      $users = mysqli_query($db, "SELECT * FROM user");
 				$i = 1; while ($row = mysqli_fetch_array($messages)) { ?>
