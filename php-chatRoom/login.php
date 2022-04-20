@@ -2,7 +2,7 @@
 // Initialize 
 session_start();
 
-// check if logged in, if yes then redirect to welcome page
+//if logged in, redirect to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: welcome.php");
     exit;
@@ -11,11 +11,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 // Include config file
 require_once "config.php";
 
-// Define variables and initialize with empty values
+// Define/initialize variables 
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
 
-// Processing form data when form is submitted
+// Processing form data 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check  username is empty
@@ -32,13 +32,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password = trim($_POST["password"]);
     }
 
-    // Validate credentials
+    // Validate creds
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
         $sql = "SELECT id, username, password FROM users WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
+            // Bind variables to statement 
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
             // Set parameters
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Store result
                 mysqli_stmt_store_result($stmt);
 
-                // Check if username exists, if yes then verify password
+                // if username exists, then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
