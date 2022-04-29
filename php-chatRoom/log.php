@@ -57,7 +57,7 @@
 
 			<tbody>
 				<?php
-				// select all messages if page is visited/refreshed
+				// select all messages when page is visited/refreshed
 				$messages = mysqli_query($db, "SELECT * FROM messages");
 	      $users = mysqli_query($db, "SELECT * FROM user");
 				$i = 1; while ($row = mysqli_fetch_array($messages)) { ?>
