@@ -7,9 +7,11 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1
 
-CREATE TABLE `messages` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `message` varchar(255) DEFAULT NULL,
+CREATE TABLE `messages`(
+`id` int NOT NULL AUTO_INCREMENT,
+`message` varchar(255) DEFAULT NULL,
+`userid` int,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  UNIQUE KEY `id_UNIQUE` (`id`),
+FOREIGN KEY(`userid`) REFERENCES users(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
